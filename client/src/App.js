@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <Page />
-      <a href="/storybook">To Storybook</a>
     </div>
   );
 }
