@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-image: url("../src/assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
 .App {
   text-align: center;
 }
