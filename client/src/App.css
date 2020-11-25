@@ -5,6 +5,7 @@
 }
 
 html {
+  font-family: "Orbitron", Arial, sans-serif;
   background-image: url("../src/assets/background.jpg");
   background-repeat: no-repeat;
   background-size: 100vw;
