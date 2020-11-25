@@ -1,26 +1,19 @@
 .wrapper {
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Orbitron", Arial, sans-serif;
+  font-weight: 700;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-svg {
-  display: inline-block;
-  vertical-align: top;
+  justify-content: center;
 }
 
 h1 {
   font-weight: 900;
-  font-size: 20px;
+  letter-spacing: 0.8rem;
+  font-size: 30px;
+  color: #fff;
   line-height: 1;
-  margin: 6px 0 6px 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-button + button {
-  margin-left: 10px;
+  margin: 20px 0 20px;
+  text-align: center;
 }

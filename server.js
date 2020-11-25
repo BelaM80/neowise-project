@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3047;
 
 app.get("/", (request, response) => {
   response.send("Hello World!");
@@ -16,7 +16,7 @@ app.use(
 );
 
 // Handle React routing, return all requests to React app
-app.get("*", (req, res) => {
+app.get("*", (request, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
