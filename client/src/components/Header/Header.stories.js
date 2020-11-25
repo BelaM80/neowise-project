@@ -7,7 +7,7 @@ export default {
   component: Header,
 };
 
-const Template = (args) => <Header {...args} />;
+const Template = () => <Header />;
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
