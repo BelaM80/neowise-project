@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <HomePage />
-      <a href="/storybook">To Storybook</a>
+      <a href="/.storybook">To Storybook</a>
     </div>
   );
 }
