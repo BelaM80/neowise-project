@@ -1,27 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
-
+import Input from "../Input/Input";
 import Header from "../../components/Header/Header";
-import "./page.css";
 
-const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (
+const Page = () => (
   <article>
-    <Header
-      user={user}
-      onLogin={onLogin}
-      onLogout={onLogout}
-      onCreateAccount={onCreateAccount}
-    />
+    <Header />
+    <Input type="input" placeholder="Enter your name" />
   </article>
 );
-Page.propTypes = {
-  user: PropTypes.shape({}),
-  onLogin: PropTypes.func.isRequired,
-  onLogout: PropTypes.func.isRequired,
-  onCreateAccount: PropTypes.func.isRequired,
-};
 
-Page.defaultProps = {
-  user: null,
-};
 export default Page;
