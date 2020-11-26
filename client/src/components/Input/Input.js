@@ -8,6 +8,7 @@ const Input = styled.input`
   text-align: center;
   padding: 1rem;
   margin-top: 15rem;
+  width: 200px;
   box-shadow: 0px 0px 15px 3px #fff;
 `;
 
