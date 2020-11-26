@@ -16,8 +16,4 @@ const Header = () => (
   </HeaderStyled>
 );
 
-Header.defaultProps = {
-  user: null,
-};
-
 export default Header;

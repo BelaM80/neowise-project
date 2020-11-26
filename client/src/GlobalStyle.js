@@ -12,7 +12,7 @@ html {
   font-family: "Orbitron", Arial, sans-serif;
   background-image: url(${img});
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: 100vmax;
   display: flex;
   justify-content: center;
 

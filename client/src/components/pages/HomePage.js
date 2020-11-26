@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../Input/Input";
-import Header from "../../components/Header/Header";
+import Header from "../Header/Header";
 import styled from "styled-components/macro";
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Page = () => (
+const HomePage = () => (
   <>
     <Header />
     <Container>
@@ -18,4 +18,4 @@ const Page = () => (
   </>
 );
 
-export default Page;
+export default HomePage;
