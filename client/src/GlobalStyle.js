@@ -9,16 +9,19 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
+  width: 100%;
+  height: 100%;
   font-family: "Orbitron", Arial, sans-serif;
   background-image: url(${img});
   background-repeat: no-repeat;
-  background-size: 100vmax;
+  background-size: cover;
   color: #fff;
+  background-position: center;
 }
 
 body {
-  /* display: grid;
-  grid-template-rows: 30px 1fr 1fr; */
+  width: 100%;
+  height: 100%;
 
 }
 
