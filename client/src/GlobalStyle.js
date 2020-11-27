@@ -13,9 +13,11 @@ html {
   background-image: url(${img});
   background-repeat: no-repeat;
   background-size: 100vmax;
+}
+
+body {
   display: flex;
   justify-content: center;
-
 }
 
 .App {
