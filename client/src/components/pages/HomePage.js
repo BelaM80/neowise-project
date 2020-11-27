@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import Input from "../Input/Input";
 import Header from "../Header/Header";
-import styled from "styled-components/macro";
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import Container from "../Container";
 
 function HomePage() {
   const [name, setName] = useState("");
@@ -17,7 +11,7 @@ function HomePage() {
   };
 
   return (
-    <body>
+    <>
       <Header />
       <Container>
         <form onSubmit={handleSubmit}>
@@ -30,7 +24,7 @@ function HomePage() {
         </form>
         <a href="/storybook">To Storybook</a>
       </Container>
-    </body>
+    </>
   );
 }
 

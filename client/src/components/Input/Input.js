@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import React from "react";
 
 const Input = styled.input`
   background-color: #fff;

@@ -13,11 +13,13 @@ html {
   background-image: url(${img});
   background-repeat: no-repeat;
   background-size: 100vmax;
+  color: #fff;
 }
 
 body {
-  display: flex;
-  justify-content: center;
+  /* display: grid;
+  grid-template-rows: 30px 1fr 1fr; */
+
 }
 
 .App {

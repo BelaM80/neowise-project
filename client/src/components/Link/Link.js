@@ -8,10 +8,12 @@ const Button = styled.button`
   font-family: "Orbitron", Arial, sans-serif;
   font-size: 1rem;
   text-align: center;
-  padding: 0.8rem;
-  width: 200px;
+  padding: 0.8rem 50px;
+  max-width: 200px;
+  max-height: 60px;
   box-shadow: 0px 0px 15px 3px #fff;
   cursor: pointer;
+  margin-top: 60px;
 `;
 
 export function LinkButton() {
