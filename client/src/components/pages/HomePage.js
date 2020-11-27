@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../Input/Input";
 import Header from "../Header/Header";
 import styled from "styled-components/macro";
@@ -9,13 +9,29 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const HomePage = () => (
-  <>
-    <Header />
-    <Container>
-      <Input onSubmit="submit" type="input" placeholder="Enter your name" />
-    </Container>
-  </>
-);
+function HomePage() {
+  const [name, setName] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <body>
+      <Header />
+      <Container>
+        <form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            value={name}
+            placeholder="Enter your name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </form>
+        <a href="/storybook">To Storybook</a>
+      </Container>
+    </body>
+  );
+}
 
 export default HomePage;

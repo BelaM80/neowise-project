@@ -1,14 +1,18 @@
-import HomePage from "./components/pages/HomePage.js";
 import GlobalStyle from "./GlobalStyle";
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <GlobalStyle />
-      <HomePage />
-      <a href="/storybook">To Storybook</a>
-    </div>
+      <Switch>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
