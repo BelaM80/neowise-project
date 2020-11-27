@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const HeaderStyled = styled.header`
-  font-family: "Orbitron", Arial, sans-serif;
   font-weight: 700;
   padding: 15px 20px;
   display: flex;
