@@ -9,11 +9,11 @@ const Container = styled.div`
   /* grid-template-rows: 3fr 5fr;
   justify-content: center; */
   margin: 0 auto;
-  height: 100vh;
+  height: 70vh;
   width: 900px;
   a {
     text-decoration: none;
-    color: #fff;
+    margin-top: 50px;
     text-align: center;
   }
   p {

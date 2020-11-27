@@ -9,7 +9,7 @@ function StartPage() {
       <Header />
       <Container>
         <p>Caiptain xy is required on bridge!</p>
-        <LinkButton />
+        <LinkButton>Start</LinkButton>
       </Container>
     </>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import React from "react";
 
-const Button = styled.button`
+const Button = styled.a`
   background-color: #fff;
   border-radius: 50px;
   border: none;
@@ -14,11 +14,12 @@ const Button = styled.button`
   box-shadow: 0px 0px 15px 3px #fff;
   cursor: pointer;
   margin-top: 60px;
+  color: black;
 `;
 
 export function LinkButton() {
   return (
-    <Button type="button" onClick={onclick}>
+    <Button type="button" onClick={onclick} href="/neowisepage">
       Start
     </Button>
   );
