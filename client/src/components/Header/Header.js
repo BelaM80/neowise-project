@@ -1,15 +1,19 @@
 import React from "react";
+import styled from "styled-components";
 
-import "./header.css";
+const HeaderStyled = styled.header`
+  font-family: "Orbitron", Arial, sans-serif;
+  font-weight: 700;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Header = () => (
-  <header className="wrapper">
+  <HeaderStyled>
     <h1>NEOWISE - PROJECT</h1>
-  </header>
+  </HeaderStyled>
 );
-
-Header.defaultProps = {
-  user: null,
-};
 
 export default Header;

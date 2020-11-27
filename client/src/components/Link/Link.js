@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
+import React from "react";
 
-const Input = styled.input`
+const Button = styled.button`
   background-color: #fff;
   border-radius: 50px;
   border: none;
@@ -10,6 +11,15 @@ const Input = styled.input`
   padding: 0.8rem;
   width: 200px;
   box-shadow: 0px 0px 15px 3px #fff;
+  cursor: pointer;
 `;
 
-export default Input;
+export function LinkButton() {
+  return (
+    <Button type="button" onClick={onclick}>
+      Start
+    </Button>
+  );
+}
+
+export default LinkButton;
