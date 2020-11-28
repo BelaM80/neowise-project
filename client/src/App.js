@@ -1,14 +1,26 @@
-import HomePage from "./components/pages/HomePage.js";
 import GlobalStyle from "./GlobalStyle";
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
+import StartPage from "./components/pages/StartPage";
+import NeowisePage from "./components/pages/NeowisePage";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <GlobalStyle />
-      <HomePage />
-      <a href="/.storybook">To Storybook</a>
-    </div>
+      <Switch>
+        <Route path="/neowisepage">
+          <NeowisePage />
+        </Route>
+        <Route path="/startpage">
+          <StartPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
