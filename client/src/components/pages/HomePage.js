@@ -3,11 +3,10 @@ import Input from "../Input/Input";
 import Header from "../Header/Header";
 import Container from "../Container";
 import { useHistory } from "react-router-dom";
-//import { setName } from "../../utils/Storage";
 
 function HomePage() {
   const history = useHistory();
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newName = [name];
     setName("");
@@ -15,7 +14,6 @@ function HomePage() {
     history.push("/startpage");
   };
   const [name, setName] = useState("");
-  console.log(name);
 
   const handleChange = (e) => {
     setName(e.target.value);

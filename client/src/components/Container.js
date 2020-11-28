@@ -5,9 +5,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* grid-template-rows: 3fr 5fr;
-  justify-content: center; */
   margin: 0 auto;
   height: 70vh;
   width: 900px;
