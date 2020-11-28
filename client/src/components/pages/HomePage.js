@@ -8,7 +8,7 @@ function HomePage() {
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newName = [name];
+    const newName = name;
     setName("");
     localStorage.setItem("name", JSON.stringify(newName));
     history.push("/startpage");
