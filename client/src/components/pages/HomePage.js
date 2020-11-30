@@ -3,20 +3,20 @@ import Input from "../Input/Input";
 import Header from "../Header/Header";
 import Container from "../Container";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function HomePage() {
+function HomePage({ onNameChange }) {
+  const [newName, setNewName] = useState("");
+
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newName = name;
-    setName("");
-    localStorage.setItem("name", JSON.stringify(newName));
+    onNameChange(newName);
     history.push("/startpage");
   };
-  const [name, setName] = useState("");
 
   const handleChange = (e) => {
-    setName(e.target.value);
+    setNewName(e.target.value);
   };
 
   return (
@@ -26,7 +26,7 @@ function HomePage() {
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
-            value={name}
+            value={newName}
             placeholder="Enter your name"
             onChange={handleChange}
             link
@@ -37,5 +37,10 @@ function HomePage() {
     </>
   );
 }
+
+HomePage.propTypes = {
+  name: PropTypes.string,
+  onNameChange: PropTypes.func.isRequired,
+};
 
 export default HomePage;

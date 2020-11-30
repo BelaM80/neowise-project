@@ -1,11 +1,16 @@
 import GlobalStyle from "./GlobalStyle";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/pages/HomePage";
 import StartPage from "./components/pages/StartPage";
 import NeowisePage from "./components/pages/NeowisePage";
 
 function App() {
+  const [name, setName] = useState(() => localStorage.getItem("name") || "");
+  useEffect(() => {
+    localStorage.setItem("name", name);
+  }, [name]);
+
   return (
     <Router>
       <GlobalStyle />
@@ -14,10 +19,10 @@ function App() {
           <NeowisePage />
         </Route>
         <Route path="/startpage">
-          <StartPage />
+          <StartPage name={name} />
         </Route>
         <Route path="/">
-          <HomePage />
+          <HomePage name={name} onNameChange={(newName) => setName(newName)} />
         </Route>
       </Switch>
     </Router>
