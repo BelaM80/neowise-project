@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef } from "react";
 // import Header from "../Header/Header";
 //import Container from "../Container";
 import { Canvas } from "react-three-fiber";
 import neowise from "../../assets/scene.glb";
-import { HTML, RoundedBox, useGLTFLoader } from "drei";
+import { HTML, OrbitControls, useGLTFLoader } from "drei";
 import styled from "styled-components";
 
 const CanvasStyled = styled(Canvas)`
@@ -18,37 +18,30 @@ const SpaceShip = () => {
 
 function NeowisePage() {
   return (
-    <CanvasStyled colorManagement camera={{ position: [0, 0, 20], fov: 70 }}>
+    <CanvasStyled colorManagement camera={{ position: [-5, 2, 10], fov: 70 }}>
+      <directionalLight position={[0, 10, 0]} intensity={0.5} />
       <Suspense fallback={null}>
-        <mesh position={[0, -1, 0]}>
+        <mesh position={[0, 1, 0]} castShadow>
           <SpaceShip />
         </mesh>
       </Suspense>
-
-      {/* <RoundedBox args={[5, 5, 5]} radius={0.05} smoothness={4}>
-        <meshPhongMaterial attach="material" color="#f3f3f3" />
-      </RoundedBox> */}
-
       <HTML fullscreen>
         <div>
           <h1>Hello</h1>
         </div>
       </HTML>
+      <OrbitControls />
     </CanvasStyled>
   );
 }
 export default NeowisePage;
-// import React, { useRef, useState } from "react";
-// import { Canvas, useFrame } from "react-three-fiber";
-// import PropTypes from "prop-types";
-// import { softShadows, MeshWobbleMaterial, OrbitControls } from "drei";
-// import { useSpring, animated } from "react-spring-three";
-// import styled from "styled-components";
 
-// const CanvasStyled = styled(Canvas)`
-//   height: 100vh;
-//   background-color: red;
-// `;
+//import styled from "styled-components";
+// import { useRef, useState } from "react";
+// import { useFrame } from "react-three-fiber";
+// import PropTypes from "prop-types";
+// import { softShadows, MeshWobbleMaterial } from "drei";
+// import { useSpring, animated } from "react-spring-three";
 
 // softShadows();
 
@@ -90,7 +83,7 @@ export default NeowisePage;
 //   speed: PropTypes.number.isRequired,
 // };
 
-// function NeowisePage() {
+// function NeowisePage2() {
 //   return (
 //     <>
 //       <CanvasStyled
@@ -139,4 +132,4 @@ export default NeowisePage;
 //   );
 // }
 
-// export default NeowisePage;
+// export { NeowisePage2 };
