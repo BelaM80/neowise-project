@@ -39,6 +39,10 @@ h1 {
   text-align: center;
 }
 
+canvas {
+  height: 100vh;
+}
+
 `;
 
 export default GlobalStyle;
