@@ -41,6 +41,7 @@ h1 {
 
 canvas {
   height: 100vh;
+  background-color: black;
 }
 
 `;
