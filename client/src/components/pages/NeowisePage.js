@@ -1,7 +1,5 @@
 import { OrbitControls } from "drei";
 import React, { Suspense } from "react";
-// import Header from "../Header/Header";
-//import Container from "../Container";
 import { Canvas } from "react-three-fiber";
 import styled from "styled-components";
 import SpaceShip from "../3D/SpaceShip";
