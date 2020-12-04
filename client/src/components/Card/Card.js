@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
-import React from "react";
+import React, { useContext } from "react";
 import img from "../../assets/hubble-eyes.jpg";
+import { ModalContext } from "../../provider/ModalContextProvider";
 
 const CardContainer = styled.div`
   width: 600px;
@@ -24,17 +25,21 @@ const CardContainer = styled.div`
   }
 `;
 
-const Card = () => (
-  <CardContainer>
-    <img src={img} alt="#"></img>
-    <h2>Titel</h2>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, impedit
-      repellat sequi aliquam error itaque vitae pariatur labore soluta quasi ex
-      commodi! Suscipit quo aliquid consequatur culpa, aliquam ipsam quod!
-    </p>
-    <button>✖️</button>
-  </CardContainer>
-);
+const Card = () => {
+  const { handleModal } = useContext(ModalContext);
+
+  return (
+    <CardContainer>
+      <img src={img} alt="#"></img>
+      <h2>Titel</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, impedit
+        repellat sequi aliquam error itaque vitae pariatur labore soluta quasi
+        ex commodi! Suscipit quo aliquid consequatur culpa, aliquam ipsam quod!
+      </p>
+      <button onClick={() => handleModal()}>✖️</button>
+    </CardContainer>
+  );
+};
 
 export default Card;
