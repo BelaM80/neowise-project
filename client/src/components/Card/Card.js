@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import React from "react";
 import img from "../../assets/hubble-eyes.jpg";
 
-const Div = styled.div`
+const CardContainer = styled.div`
   width: 600px;
   background-color: #fff;
   color: black;
@@ -13,7 +13,6 @@ const Div = styled.div`
   img {
     max-width: 100%;
     border-radius: 25px;
-    /* box-shadow: 0px 0px 10px 3px #010a26; */
   }
   button {
     border: none;
@@ -26,7 +25,7 @@ const Div = styled.div`
 `;
 
 const Card = () => (
-  <Div>
+  <CardContainer>
     <img src={img} alt="#"></img>
     <h2>Titel</h2>
     <p>
@@ -35,7 +34,7 @@ const Card = () => (
       commodi! Suscipit quo aliquid consequatur culpa, aliquam ipsam quod!
     </p>
     <button>✖️</button>
-  </Div>
+  </CardContainer>
 );
 
 export default Card;

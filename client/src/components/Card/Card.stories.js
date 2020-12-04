@@ -5,6 +5,7 @@ import Card from "./Card";
 export default {
   title: "Component/Card",
   component: Card,
+  parameters: { layout: "centered" },
 };
 
 const Template = () => <Card />;
