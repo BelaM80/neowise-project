@@ -10,6 +10,7 @@ const Button = styled.button`
   padding: 0.8rem;
   min-width: 200px;
   box-shadow: 0px 0px 15px 3px #fff;
+  cursor: pointer;
 `;
 
 export default Button;
