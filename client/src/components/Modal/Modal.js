@@ -48,7 +48,6 @@ const Modal = ({ modalOpen, setModalOpen }) => {
       {modalOpen ? (
         <ModalContainer modalOpen={modalOpen}>
           <ModalHeader>
-            {" "}
             <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
             <form onSubmit={handleSubmit}>
               <input type="text" placeholder="Type a keyword" />
