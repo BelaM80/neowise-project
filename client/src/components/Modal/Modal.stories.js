@@ -1,16 +1,16 @@
 import React from "react";
 
-import Card from "./Card";
+import Modal from "./Modal";
 
 export default {
   title: "Component/Card",
-  component: Card,
+  component: Modal,
   parameters: { layout: "centered" },
 };
 
-const Template = () => <Card />;
+const Template = () => <Modal />;
 
-export const card = Template.bind({});
-card.args = {
+export const modal = Template.bind({});
+modal.args = {
   user: {},
 };
