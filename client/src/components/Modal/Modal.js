@@ -25,11 +25,35 @@ const ModalContainer = styled.div`
   }
 `;
 
+const ModalHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    margin-right: 1rem;
+    padding: 0.3rem;
+    font-family: "Orbitron", Arial, sans-serif;
+  }
+`;
+
 const Modal = ({ modalOpen, setModalOpen }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       {modalOpen ? (
         <ModalContainer modalOpen={modalOpen}>
+          <ModalHeader>
+            {" "}
+            <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
+            <form onSubmit={handleSubmit}>
+              <input type="text" placeholder="Type a keyword" />
+            </form>
+          </ModalHeader>
           <img src={img} alt="#"></img>
           <h2>Titel</h2>
           <p>
@@ -38,7 +62,6 @@ const Modal = ({ modalOpen, setModalOpen }) => {
             soluta quasi ex commodi! Suscipit quo aliquid consequatur culpa,
             aliquam ipsam quod!
           </p>
-          <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
         </ModalContainer>
       ) : null}
     </>
