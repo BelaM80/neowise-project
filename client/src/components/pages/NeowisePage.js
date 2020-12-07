@@ -1,11 +1,4 @@
-import {
-  ContactShadows,
-  FlyControls,
-  HTML,
-  OrbitControls,
-  PointerLockControls,
-  Stars,
-} from "drei";
+import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useState } from "react";
 import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
