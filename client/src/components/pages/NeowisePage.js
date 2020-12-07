@@ -2,7 +2,7 @@ import { HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useState } from "react";
 import { Canvas } from "react-three-fiber";
 import SpaceShip from "../3D/SpaceShip";
-import Card from "../Card/Card";
+import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
 
 function NeowisePage() {
@@ -18,7 +18,7 @@ function NeowisePage() {
         <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
       </HTML>
       <HTML position={[-3, 1, 0]}>
-        <Card modalOpen={modalOpen} />
+        <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       </HTML>
       <OrbitControls />
       <mesh scale={[2, 2, 2]}>
