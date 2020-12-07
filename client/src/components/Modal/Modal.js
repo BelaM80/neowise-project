@@ -10,9 +10,6 @@ const ModalContainer = styled.div`
   padding: 0.8rem;
   border-radius: 30px;
   box-shadow: 0px 0px 15px 3px #fff;
-  /* transform: ${({ modalOpen }) =>
-    modalOpen ? "translateY(0)" : "translateY(100%)"};
-  transition: transform 0.3s ease-in-out; */
 
   img {
     max-width: 100%;
