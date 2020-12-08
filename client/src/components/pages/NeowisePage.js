@@ -1,7 +1,10 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
+import PropTypes from "prop-types";
+import { getNasaData } from "../../utils/api";
+
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
@@ -14,7 +17,16 @@ import Itokawa from "../3D/Itokawa";
 
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [nasaData, setNasaData] = useState(null);
 
+  async function loadNasaData() {
+    const nasa = await getNasaData("hubble");
+    setNasaData(nasa);
+    return nasa;
+  }
+  useEffect(() => {
+    loadNasaData();
+  }, []);
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
       <ContactShadows
@@ -47,7 +59,15 @@ function NeowisePage() {
       </Suspense>
 
       <HTML position={[-3, 1, 0]}>
-        <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        {nasaData &&
+          nasaData.collection.items.map((item) => (
+            <Modal
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              key={item.data[0].title}
+              title={item.data[0].title}
+            />
+          ))}
       </HTML>
       <HTML prepend position={[7, 1, 10]}>
         <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
@@ -61,4 +81,10 @@ function NeowisePage() {
     </Canvas>
   );
 }
+NeowisePage.propTypes = {
+  data: PropTypes.node,
+  map: PropTypes.func,
+  title: PropTypes.string,
+};
+
 export default NeowisePage;

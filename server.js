@@ -1,8 +1,24 @@
 const express = require("express");
 const path = require("path");
+const { getNasaData } = require("./lib/nasadata");
 
 const app = express();
 const port = process.env.PORT || 3047;
+
+app.get("/api/nasadata/:title", async (request, response) => {
+  const { title } = request.params;
+  const nasaDataValue = await getNasaData(title);
+  try {
+    if (!nasaDataValue) {
+      response.status(404).send("Could not find any Data");
+      return;
+    }
+    response.send(nasaDataValue);
+  } catch (error) {
+    console.log(error);
+    response.status(500).send("An internal error occured");
+  }
+});
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, "client/build")));

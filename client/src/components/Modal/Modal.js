@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
-import React from "react";
+import React, { useState } from "react";
 import img from "../../assets/hubble-eyes.jpg";
 import PropTypes from "prop-types";
+import { getNasaData } from "../../utils/api";
 
 const ModalContainer = styled.div`
   width: 600px;
@@ -38,10 +39,18 @@ const ModalHeader = styled.header`
   }
 `;
 
-const Modal = ({ modalOpen, setModalOpen }) => {
+const Modal = ({ modalOpen, setModalOpen, title, description }) => {
+  async function loadNasaData(title) {
+    const nasaData = await getNasaData(title);
+    return nasaData;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    loadNasaData(search);
+    setSearch([]);
   };
+  const [search, setSearch] = useState("");
 
   return (
     <>
@@ -50,17 +59,12 @@ const Modal = ({ modalOpen, setModalOpen }) => {
           <ModalHeader>
             <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
             <form onSubmit={handleSubmit}>
-              <input type="text" placeholder="Type a keyword" />
+              <input type="text" placeholder="Type a keyword" value={search} />
             </form>
           </ModalHeader>
-          <img src={img} alt="#"></img>
-          <h2>Titel</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea,
-            impedit repellat sequi aliquam error itaque vitae pariatur labore
-            soluta quasi ex commodi! Suscipit quo aliquid consequatur culpa,
-            aliquam ipsam quod!
-          </p>
+          <img src={img} alt={title}></img>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </ModalContainer>
       ) : null}
     </>
@@ -70,6 +74,9 @@ const Modal = ({ modalOpen, setModalOpen }) => {
 Modal.propTypes = {
   modalOpen: PropTypes.bool,
   setModalOpen: PropTypes.bool,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.node,
 };
 
 export default Modal;
