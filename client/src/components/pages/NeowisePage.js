@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
-import { getNasaData } from "../../utils/api";
+import { getNasaItems } from "../../utils/api";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
@@ -17,15 +17,14 @@ import Itokawa from "../3D/Itokawa";
 
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [nasaData, setNasaData] = useState(null);
+  const [nasaItems, setNasaItems] = useState(null);
 
-  async function loadNasaData() {
-    const nasa = await getNasaData("hubble");
-    setNasaData(nasa);
-    return nasa;
+  async function loadNasaItems() {
+    const nasa = await getNasaItems("hubble");
+    setNasaItems(nasa);
   }
   useEffect(() => {
-    loadNasaData();
+    loadNasaItems();
   }, []);
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
@@ -59,13 +58,13 @@ function NeowisePage() {
       </Suspense>
 
       <HTML position={[-3, 1, 0]}>
-        {nasaData &&
-          nasaData.collection.items.map((item) => (
+        {nasaItems &&
+          nasaItems.map((item) => (
             <Modal
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
-              key={item.data[0].title}
-              title={item.data[0].title}
+              key={item.title}
+              title={item.title}
             />
           ))}
       </HTML>

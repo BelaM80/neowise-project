@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import React, { useState } from "react";
 import img from "../../assets/hubble-eyes.jpg";
 import PropTypes from "prop-types";
-import { getNasaData } from "../../utils/api";
+import { getNasaItems } from "../../utils/api";
 
 const ModalContainer = styled.div`
   width: 600px;
@@ -40,14 +40,14 @@ const ModalHeader = styled.header`
 `;
 
 const Modal = ({ modalOpen, setModalOpen, title, description }) => {
-  async function loadNasaData(title) {
-    const nasaData = await getNasaData(title);
+  async function loadNasaItems(title) {
+    const nasaData = await getNasaItems(title);
     return nasaData;
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loadNasaData(search);
+    loadNasaItems(search);
     setSearch([]);
   };
   const [search, setSearch] = useState("");
