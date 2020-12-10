@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import React from "react";
 import PropTypes from "prop-types";
+import InnerModal from "./InnerModal";
 
 const ModalContainer = styled.div`
   width: 600px;
@@ -62,11 +63,13 @@ const Modal = ({
             </form>
           </ModalHeader>
           {nasaItems?.map((item) => (
-            <div key={item.nasaId}>
-              <img src={item.imageSrc} alt="" />
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-            </div>
+            <InnerModal
+              key={item.nasaId}
+              title={item.title}
+              description={item.description}
+              imageSrc={item.imageSrc}
+              alt=""
+            />
           ))}
         </ModalContainer>
       ) : null}
