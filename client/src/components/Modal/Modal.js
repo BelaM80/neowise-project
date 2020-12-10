@@ -1,8 +1,6 @@
 import styled from "styled-components/macro";
-import React, { useState } from "react";
-import img from "../../assets/hubble-eyes.jpg";
+import React from "react";
 import PropTypes from "prop-types";
-import { getNasaItems } from "../../utils/api";
 
 const ModalContainer = styled.div`
   width: 600px;
@@ -39,44 +37,51 @@ const ModalHeader = styled.header`
   }
 `;
 
-const Modal = ({ modalOpen, setModalOpen, title, description }) => {
-  async function loadNasaItems(title) {
-    const nasaData = await getNasaItems(title);
-    return nasaData;
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    loadNasaItems(search);
-    setSearch([]);
-  };
-  const [search, setSearch] = useState("");
-
+const Modal = ({
+  modalOpen,
+  setModalOpen,
+  title,
+  description,
+  value,
+  onSubmit,
+  onChange,
+  image,
+}) => {
   return (
     <>
       {modalOpen ? (
         <ModalContainer modalOpen={modalOpen}>
           <ModalHeader>
             <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
-            <form onSubmit={handleSubmit}>
-              <input type="text" placeholder="Type a keyword" value={search} />
+            <form onSubmit={onSubmit}>
+              <input
+                type="text"
+                placeholder="Type a keyword"
+                value={value}
+                onChange={onChange}
+              />
+              <input type="submit" onClick={onChange} />
             </form>
           </ModalHeader>
-          <img src={img} alt={title}></img>
-          <h2>{title}</h2>
-          <p>{description}</p>
+          <div>
+            <img src={image} alt={title}></img>
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
         </ModalContainer>
       ) : null}
     </>
   );
 };
-
 Modal.propTypes = {
   modalOpen: PropTypes.bool,
-  setModalOpen: PropTypes.bool,
+  setModalOpen: PropTypes.func,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.node,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default Modal;

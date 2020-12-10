@@ -18,14 +18,29 @@ import Itokawa from "../3D/Itokawa";
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState(null);
 
-  async function loadNasaItems() {
-    const nasa = await getNasaItems("hubble");
+  async function loadNasaItems(search) {
+    const nasa = await getNasaItems(search);
     setNasaItems(nasa);
   }
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setQuery(search);
+    console.log(search);
+    setSearch("");
+  };
+
   useEffect(() => {
     loadNasaItems();
-  }, []);
+  }, [query]);
+
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
       <ContactShadows
@@ -57,18 +72,23 @@ function NeowisePage() {
         </animated.group>
       </Suspense>
 
-      <HTML position={[-3, 1, 0]}>
+      <HTML position={[-3, 5, 0]}>
         {nasaItems &&
           nasaItems.map((item) => (
             <Modal
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
-              key={item.title}
+              key={item.nasa_id}
               title={item.title}
-            />
+              description={item.description}
+              image={item.image}
+              value={search}
+              onSubmit={handleSubmit}
+              onChange={handleChange}
+            ></Modal>
           ))}
       </HTML>
-      <HTML prepend position={[7, 1, 10]}>
+      <HTML prepend position={[0, 1, -40]}>
         <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
       </HTML>
       {/* <FlyControls object={PerspectiveCamera} domElement={SpaceShip} /> */}
