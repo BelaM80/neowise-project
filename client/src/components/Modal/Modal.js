@@ -40,12 +40,10 @@ const ModalHeader = styled.header`
 const Modal = ({
   modalOpen,
   setModalOpen,
-  title,
-  description,
+  nasaItems,
   value,
   onSubmit,
   onChange,
-  image,
 }) => {
   return (
     <>
@@ -63,22 +61,23 @@ const Modal = ({
               <input type="submit" onClick={onChange} />
             </form>
           </ModalHeader>
-          <div>
-            <img src={image} alt={title}></img>
-            <h2>{title}</h2>
-            <p>{description}</p>
-          </div>
+          {nasaItems?.map((item) => (
+            <div key={item.nasaId}>
+              <img src={item.imageSrc} alt="" />
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </ModalContainer>
       ) : null}
     </>
   );
 };
+
 Modal.propTypes = {
   modalOpen: PropTypes.bool,
   setModalOpen: PropTypes.func,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.node,
+  nasaItems: PropTypes.func,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,

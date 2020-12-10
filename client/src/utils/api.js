@@ -5,7 +5,8 @@ export const getNasaItems = async (query) => {
   const items = data.collection.items.map((item) => ({
     title: item.data[0].title,
     description: item.data[0].description,
-    image: item.links[0].href,
+    imageSrc: item.links[0].href,
+    nasaId: item.data[0].nasa_id,
   }));
 
   return items;

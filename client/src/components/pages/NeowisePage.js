@@ -1,5 +1,5 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
@@ -19,27 +19,20 @@ function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState(null);
-
-  async function loadNasaItems(search) {
-    const nasa = await getNasaItems(search);
-    setNasaItems(nasa);
-  }
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuery(search);
-    console.log(search);
-    setSearch("");
-  };
 
-  useEffect(() => {
-    loadNasaItems();
-  }, [query]);
+    if (!search) {
+      return null;
+    }
+    const nasa = await getNasaItems(search);
+    setNasaItems(nasa);
+  };
 
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
@@ -73,20 +66,14 @@ function NeowisePage() {
       </Suspense>
 
       <HTML position={[-3, 5, 0]}>
-        {nasaItems &&
-          nasaItems.map((item) => (
-            <Modal
-              modalOpen={modalOpen}
-              setModalOpen={setModalOpen}
-              key={item.nasa_id}
-              title={item.title}
-              description={item.description}
-              image={item.image}
-              value={search}
-              onSubmit={handleSubmit}
-              onChange={handleChange}
-            ></Modal>
-          ))}
+        <Modal
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          nasaItems={nasaItems}
+          value={search}
+          onSubmit={handleSubmit}
+          onChange={handleChange}
+        />
       </HTML>
       <HTML prepend position={[0, 1, -40]}>
         <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
