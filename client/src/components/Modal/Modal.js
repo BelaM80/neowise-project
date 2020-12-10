@@ -1,6 +1,5 @@
 import styled from "styled-components/macro";
 import React from "react";
-import img from "../../assets/hubble-eyes.jpg";
 import PropTypes from "prop-types";
 
 const ModalContainer = styled.div`
@@ -38,29 +37,37 @@ const ModalHeader = styled.header`
   }
 `;
 
-const Modal = ({ modalOpen, setModalOpen }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
+const Modal = ({
+  modalOpen,
+  setModalOpen,
+  nasaItems,
+  value,
+  onSubmit,
+  onChange,
+}) => {
   return (
     <>
       {modalOpen ? (
         <ModalContainer modalOpen={modalOpen}>
           <ModalHeader>
             <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
-            <form onSubmit={handleSubmit}>
-              <input type="text" placeholder="Type a keyword" />
+            <form onSubmit={onSubmit}>
+              <input
+                type="text"
+                placeholder="Type a keyword"
+                value={value}
+                onChange={onChange}
+              />
+              <input type="submit" onClick={onChange} />
             </form>
           </ModalHeader>
-          <img src={img} alt="#"></img>
-          <h2>Titel</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea,
-            impedit repellat sequi aliquam error itaque vitae pariatur labore
-            soluta quasi ex commodi! Suscipit quo aliquid consequatur culpa,
-            aliquam ipsam quod!
-          </p>
+          {nasaItems?.map((item) => (
+            <div key={item.nasaId}>
+              <img src={item.imageSrc} alt="" />
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </ModalContainer>
       ) : null}
     </>
@@ -69,7 +76,11 @@ const Modal = ({ modalOpen, setModalOpen }) => {
 
 Modal.propTypes = {
   modalOpen: PropTypes.bool,
-  setModalOpen: PropTypes.bool,
+  setModalOpen: PropTypes.func,
+  nasaItems: PropTypes.array,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default Modal;

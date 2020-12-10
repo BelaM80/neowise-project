@@ -18,7 +18,7 @@ const Ceres = ({ position, scale }) => {
 };
 
 Ceres.propTypes = {
-  speed: PropTypes.number.isRequired,
+  speed: PropTypes.number,
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
   scale: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
