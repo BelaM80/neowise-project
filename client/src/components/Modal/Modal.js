@@ -77,7 +77,7 @@ const Modal = ({
 Modal.propTypes = {
   modalOpen: PropTypes.bool,
   setModalOpen: PropTypes.func,
-  nasaItems: PropTypes.func,
+  nasaItems: PropTypes.array,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
