@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ModalHead = styled.header`
+const Header = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
@@ -20,7 +20,7 @@ const ModalHead = styled.header`
 
 const HeaderModal = (setModalOpen, modalOpen, onSubmit, value, onChange) => {
   return (
-    <ModalHead>
+    <Header>
       <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
       <form onSubmit={onSubmit}>
         <input
@@ -31,7 +31,7 @@ const HeaderModal = (setModalOpen, modalOpen, onSubmit, value, onChange) => {
         />
         <input type="submit" onClick={onChange} />
       </form>
-    </ModalHead>
+    </Header>
   );
 };
 

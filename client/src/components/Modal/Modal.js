@@ -39,7 +39,7 @@ const Modal = ({
   return (
     <>
       {modalOpen ? (
-        <ModalContainer modalOpen={modalOpen}>
+        <ModalContainer>
           {HeaderModal(setModalOpen, modalOpen, onSubmit, value, onChange)}
           {nasaItems?.map((item) => (
             <InnerModal
@@ -47,7 +47,7 @@ const Modal = ({
               title={item.title}
               description={item.description}
               imageSrc={item.imageSrc}
-              alt=""
+              alt={item.title}
             />
           ))}
         </ModalContainer>
