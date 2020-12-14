@@ -14,10 +14,7 @@ const ModalContainer = styled.div`
   height: 700px;
   overflow-x: hidden;
   overflow-y: auto;
-  img {
-    max-width: 100%;
-    border-radius: 25px;
-  }
+
   button {
     border: none;
     background-color: #fff;
