@@ -7,7 +7,6 @@ const port = process.env.PORT || 3047;
 
 app.get("/api/nasaItems/:query", async (request, response) => {
   const { query } = request.params;
-  console.log("sun", query);
   try {
     const nasaDataValue = await getNasaData(query);
     if (!nasaDataValue) {
@@ -17,7 +16,7 @@ app.get("/api/nasaItems/:query", async (request, response) => {
     response.send(nasaDataValue);
   } catch (error) {
     console.log(error);
-    response.status(500).send("An internal error occured 123");
+    response.status(500).send("An internal error occured");
   }
 });
 
