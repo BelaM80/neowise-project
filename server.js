@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
-const { getNasaData } = require("./lib/nasadata");
+const { getNasaItems } = require("./lib/database");
 
 const app = express();
 const port = process.env.PORT || 3047;
 
-app.get("/api/nasadata/:title", async (request, response) => {
-  const { title } = request.params;
-  const nasaDataValue = await getNasaData(title);
+app.get("/api/nasaItems/:query", async (request, response) => {
+  const { query } = request.params;
+  const nasaDataValue = await getNasaItems(query);
   try {
     if (!nasaDataValue) {
       response.status(404).send("Could not find any Data");
