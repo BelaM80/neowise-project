@@ -55,6 +55,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "postinstall": "^0.7.0",
     "styled-components": "^5.2.1"
   }
