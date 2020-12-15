@@ -12,6 +12,7 @@ const Button = styled.button`
   box-shadow: 0px 0px 15px 3px #fff;
   cursor: pointer;
   background: none;
+  display: ${setTimeout(10000)};
 `;
 
 export default Button;

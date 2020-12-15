@@ -1,5 +1,5 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
@@ -19,6 +19,7 @@ function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
   const [search, setSearch] = useState("");
+  const [lazyButton, setLazyButton] = useState(false);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -33,6 +34,10 @@ function NeowisePage() {
     const nasa = await getNasaItems(search);
     setNasaItems(nasa);
   };
+
+  useEffect(() => {
+    setTimeout(() => setLazyButton(true), 1500);
+  });
 
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
@@ -81,7 +86,9 @@ function NeowisePage() {
         />
       </HTML>
       <HTML prepend position={[0, 1, -40]}>
-        <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
+        {lazyButton && (
+          <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
+        )}
       </HTML>
 
       {/* <FlyControls object={PerspectiveCamera} domElement={SpaceShip} /> */}
