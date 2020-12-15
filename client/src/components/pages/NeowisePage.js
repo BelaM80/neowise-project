@@ -36,7 +36,7 @@ function NeowisePage() {
   };
 
   useEffect(() => {
-    setTimeout(() => setLazyButton(true), 1500);
+    setTimeout(() => setLazyButton(true), 2500);
   });
 
   return (
