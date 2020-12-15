@@ -19,7 +19,7 @@ function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
   const [search, setSearch] = useState("");
-  const [lazyButton, setLazyButton] = useState(false);
+  const [ShowLazyButton, setShowLazyButton] = useState(false);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -36,8 +36,11 @@ function NeowisePage() {
   };
 
   useEffect(() => {
-    setTimeout(() => setLazyButton(true), 2500);
-  });
+    const timeoutId = setTimeout(() => setShowLazyButton(true), 2500);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   return (
     <Canvas colorManagement camera={{ position: [0, 10, 20], fov: 70 }}>
@@ -86,7 +89,7 @@ function NeowisePage() {
         />
       </HTML>
       <HTML prepend position={[0, 1, -40]}>
-        {lazyButton && (
+        {ShowLazyButton && (
           <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
         )}
       </HTML>
