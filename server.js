@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const { getNasaData } = require("./lib/database");
+const { getPicture } = require("./lib/picturedata");
 
 const app = express();
 const port = process.env.PORT || 3047;
@@ -14,6 +15,21 @@ app.get("/api/nasaItems/:query", async (request, response) => {
       return;
     }
     response.send(nasaDataValue);
+  } catch (error) {
+    console.log(error);
+    response.status(500).send("An internal error occured");
+  }
+});
+
+app.get("/api/nasaPicture/:date", async (request, response) => {
+  const { date } = request.params;
+  try {
+    const nasaPicture = await getPicture(date);
+    if (!nasaPicture) {
+      response.status(404).send("Could not find any Data");
+      return;
+    }
+    response.send(nasaPicture);
   } catch (error) {
     console.log(error);
     response.status(500).send("An internal error occured");

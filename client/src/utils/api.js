@@ -11,3 +11,10 @@ export const getNasaItems = async (query) => {
 
   return items;
 };
+
+export const nasaPicture = async (date) => {
+  const response = await fetch(`/api/nasaPicture/${date}`);
+  const data = await response.json();
+
+  return data;
+};
