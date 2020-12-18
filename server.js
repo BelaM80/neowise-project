@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const { getNasaData } = require("./lib/database");
-const { getPicture } = require("./lib/picturedata");
+const { getNasaPicture } = require("./lib/picturedata");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3047;
@@ -24,7 +25,7 @@ app.get("/api/nasaItems/:query", async (request, response) => {
 app.get("/api/getNasaPicture/:date", async (request, response) => {
   const { date } = request.params;
   try {
-    const nasaPicture = await getPicture(date);
+    const nasaPicture = await getNasaPicture(date);
     if (!nasaPicture) {
       response.status(404).send("Could not find any Data");
       return;
