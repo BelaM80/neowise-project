@@ -111,7 +111,7 @@ function NeowisePage() {
       </HTML>
       <HTML prepend position={[0, 1, -40]}>
         {ShowLazyButton && (
-          <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
+          <Button onClick={() => setModalOpen(!modalOpen)}>QUERY</Button>
         )}
       </HTML>
       <HTML position={[-3, 5, 0]}>
@@ -126,7 +126,7 @@ function NeowisePage() {
       </HTML>
       <HTML prepend position={[-150, 1, -200]}>
         {ShowLazyButton && (
-          <Button onClick={() => setModalDayOpen(!modalDayOpen)}>Click</Button>
+          <Button onClick={() => setModalDayOpen(!modalDayOpen)}>APOD</Button>
         )}
       </HTML>
 

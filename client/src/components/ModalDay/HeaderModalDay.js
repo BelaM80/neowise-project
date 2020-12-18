@@ -16,6 +16,10 @@ const Header = styled.header`
     padding: 0.3rem;
     font-family: "Orbitron", Arial, sans-serif;
   }
+  h1 {
+    color: black;
+    font-size: 1rem;
+  }
 `;
 
 const HeaderModalDay = (

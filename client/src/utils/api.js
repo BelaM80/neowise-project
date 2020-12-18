@@ -16,6 +16,5 @@ export const getNasaPicture = async (date) => {
   const response = await fetch(`api/getNasaPicture/${date}`);
   const data = await response.json();
 
-  console.log(data);
   return data;
 };

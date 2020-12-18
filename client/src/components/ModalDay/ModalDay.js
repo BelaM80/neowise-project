@@ -33,7 +33,6 @@ const ModalDay = ({
   onSubmit,
   onChange,
 }) => {
-  console.log(nasaPic);
   return (
     <>
       {modalDayOpen ? (

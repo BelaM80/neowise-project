@@ -6,6 +6,7 @@ const Frame = styled.div`
   border: 1px solid lightgrey;
   margin-top: 1rem;
   border-radius: 28px;
+
   div {
     padding: 0.6rem;
   }
@@ -16,16 +17,23 @@ const Frame = styled.div`
   }
 `;
 
+const H1 = styled.h1`
+  color: black;
+`;
+
 const InnerModal = ({ title, explanation, imageSrc, date }) => {
   return (
-    <Frame>
-      <img src={imageSrc} alt={title} />
-      <div>
-        <h2>{title}</h2>
-        <p>{date}</p>
-        <p>{explanation}</p>
-      </div>
-    </Frame>
+    <>
+      <H1>Astronomic Picture Of The Day</H1>
+      <Frame>
+        <img src={imageSrc} alt={title} />
+        <div>
+          <h2>{title}</h2>
+          <p>{date}</p>
+          <p>{explanation}</p>
+        </div>
+      </Frame>
+    </>
   );
 };
 InnerModal.propTypes = {
