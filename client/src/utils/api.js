@@ -12,9 +12,17 @@ export const getNasaItems = async (query) => {
   return items;
 };
 
-export const nasaPicture = async (date) => {
-  const response = await fetch(`/api/nasaPicture/${date}`);
+export const getNasaPicture = async (date) => {
+  const response = await fetch(
+    `https://api.nasa.gov/planetary/apod?date=${date}&api_key=mm5t4ohZpMsQ8QRX7n5JrWQMZr6yLIsdTEKf2MAj`
+  );
   const data = await response.json();
 
-  return data;
+  const pic = data.map((item) => ({
+    title: item.title,
+    explanation: item.explanation,
+    imageSrc: item.url,
+  }));
+
+  return pic;
 };

@@ -21,7 +21,7 @@ app.get("/api/nasaItems/:query", async (request, response) => {
   }
 });
 
-app.get("/api/nasaPicture/:date", async (request, response) => {
+app.get("/api/getNasaPicture/:date", async (request, response) => {
   const { date } = request.params;
   try {
     const nasaPicture = await getPicture(date);

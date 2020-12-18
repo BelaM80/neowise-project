@@ -4,6 +4,7 @@ import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
+import { getNasaPicture } from "../../utils/api";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
@@ -21,6 +22,7 @@ function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalDayOpen, setModalDayOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
+  const [nasaPic, setNasaPic] = useState(null);
   const [search, setSearch] = useState("");
   const [searchDay, setSearchDay] = useState("");
   const [ShowLazyButton, setShowLazyButton] = useState(false);
@@ -41,6 +43,17 @@ function NeowisePage() {
     }
     const nasa = await getNasaItems(search);
     setNasaItems(nasa);
+  };
+
+  const handleDaySubmit = async (e) => {
+    e.preventDefault();
+
+    if (!searchDay) {
+      return null;
+    }
+    const pic = await getNasaPicture(searchDay);
+    console.log(searchDay);
+    setNasaPic(pic);
   };
 
   useEffect(() => {
@@ -106,9 +119,9 @@ function NeowisePage() {
         <ModalDay
           modalDayOpen={modalDayOpen}
           setModalDayOpen={setModalDayOpen}
-          nasaItems={nasaItems}
+          nasaPic={nasaPic}
           value={searchDay}
-          onSubmit={handleSubmit}
+          onSubmit={handleDaySubmit}
           onChange={handleDayChange}
         />
       </HTML>
