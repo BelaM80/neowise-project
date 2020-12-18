@@ -4,7 +4,7 @@ import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
-import { getNasaPicture } from "../../utils/api";
+import { getNasaPicture } from "../../utils/pic";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
@@ -52,7 +52,6 @@ function NeowisePage() {
       return null;
     }
     const pic = await getNasaPicture(searchDay);
-    console.log(searchDay);
     setNasaPic(pic);
   };
 

@@ -16,12 +16,13 @@ const Frame = styled.div`
   }
 `;
 
-const InnerModal = ({ title, explanation, imageSrc }) => {
+const InnerModal = ({ title, explanation, imageSrc, date }) => {
   return (
     <Frame>
       <img src={imageSrc} alt={title} />
       <div>
         <h2>{title}</h2>
+        <p>{date}</p>
         <p>{explanation}</p>
       </div>
     </Frame>
@@ -31,5 +32,6 @@ InnerModal.propTypes = {
   title: PropTypes.string,
   explanation: PropTypes.string,
   imageSrc: PropTypes.node,
+  date: PropTypes.string,
 };
 export default InnerModal;

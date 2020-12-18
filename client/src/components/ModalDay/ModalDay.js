@@ -33,6 +33,7 @@ const ModalDay = ({
   onSubmit,
   onChange,
 }) => {
+  console.log(nasaPic);
   return (
     <>
       {modalDayOpen ? (
@@ -44,15 +45,16 @@ const ModalDay = ({
             value,
             onChange
           )}
-          {nasaPic?.map((pic) => (
+          {nasaPic && (
             <InnerModalDay
-              key={pic.date}
-              title={pic.title}
-              explanation={pic.explanation}
-              imageSrc={pic.url}
-              alt={pic.title}
+              key={nasaPic.date}
+              title={nasaPic.title}
+              date={nasaPic.date}
+              explanation={nasaPic.explanation}
+              imageSrc={nasaPic.url}
+              alt={nasaPic.title}
             />
-          ))}
+          )}
         </ModalDayContainer>
       ) : null}
     </>
@@ -62,7 +64,7 @@ const ModalDay = ({
 ModalDay.propTypes = {
   modalDayOpen: PropTypes.bool,
   setModalDayOpen: PropTypes.func,
-  nasaPic: PropTypes.array,
+  nasaPic: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
