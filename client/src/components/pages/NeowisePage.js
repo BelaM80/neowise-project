@@ -4,9 +4,11 @@ import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
+import { getNasaPicture } from "../../utils/api";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
+import ModalDay from "../ModalDay/ModalDay";
 import Button from "../Button/Button";
 import MakeMake from "../3D/Makemake";
 import Sun from "../3D/Sun";
@@ -14,15 +16,23 @@ import { PerspectiveCamera } from "drei";
 import Ceres from "../3D/Ceres";
 import Europa from "../3D/Europa";
 import Itokawa from "../3D/Itokawa";
+import Eros from "../3D/Eros";
 
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalDayOpen, setModalDayOpen] = useState(false);
   const [nasaItems, setNasaItems] = useState(null);
+  const [nasaPic, setNasaPic] = useState(null);
   const [search, setSearch] = useState("");
+  const [searchDay, setSearchDay] = useState("");
   const [ShowLazyButton, setShowLazyButton] = useState(false);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
+  };
+
+  const handleDayChange = (e) => {
+    setSearchDay(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -33,6 +43,16 @@ function NeowisePage() {
     }
     const nasa = await getNasaItems(search);
     setNasaItems(nasa);
+  };
+
+  const handleDaySubmit = async (e) => {
+    e.preventDefault();
+
+    if (!searchDay) {
+      return null;
+    }
+    const pic = await getNasaPicture(searchDay);
+    setNasaPic(pic);
   };
 
   useEffect(() => {
@@ -64,6 +84,7 @@ function NeowisePage() {
       >
         <SpaceShip />
         <animated.group>
+          <Eros position={[-150, 1, -200]} scale={[0.009, 0.009, 0.009]} />
           <Itokawa position={[200, 0, 100]} scale={[0.06, 0.06, 0.06]} />
           <Europa position={[30, 0, -150]} />
           <Ceres position={[10, 0, 150]} scale={[0.02, 0.02, 0.02]} />
@@ -90,7 +111,22 @@ function NeowisePage() {
       </HTML>
       <HTML prepend position={[0, 1, -40]}>
         {ShowLazyButton && (
-          <Button onClick={() => setModalOpen(!modalOpen)}>Click</Button>
+          <Button onClick={() => setModalOpen(!modalOpen)}>QUERY</Button>
+        )}
+      </HTML>
+      <HTML position={[-3, 5, 0]}>
+        <ModalDay
+          modalDayOpen={modalDayOpen}
+          setModalDayOpen={setModalDayOpen}
+          nasaPic={nasaPic}
+          value={searchDay}
+          onSubmit={handleDaySubmit}
+          onChange={handleDayChange}
+        />
+      </HTML>
+      <HTML prepend position={[-150, 1, -200]}>
+        {ShowLazyButton && (
+          <Button onClick={() => setModalDayOpen(!modalDayOpen)}>APOD</Button>
         )}
       </HTML>
 
