@@ -1,6 +1,5 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useEffect, useState } from "react";
-import { animated } from "react-spring-three";
 import { Canvas } from "react-three-fiber";
 import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
@@ -10,14 +9,9 @@ import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
 import ModalDay from "../ModalDay/ModalDay";
 import Button from "../Button/Button";
-import MakeMake from "../3D/Makemake";
 import Sun from "../3D/Sun";
-import Ceres from "../3D/Ceres";
-import Europa from "../3D/Europa";
-import Itokawa from "../3D/Itokawa";
-import Eros from "../3D/Eros";
+
 import Sunsystem from "../3D/Sunsystem";
-import Header from "../Header/Header";
 
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -87,18 +81,7 @@ function NeowisePage() {
             <SpaceShip />
           </mesh>
           <Sunsystem />
-          {/* <animated.group>
-          <Eros position={[-150, 1, -200]} scale={[0.009, 0.009, 0.009]} />
-          <Itokawa position={[200, 0, 100]} scale={[0.06, 0.06, 0.06]} />
-          <Europa position={[30, 0, -150]} />
-          <Ceres position={[10, 0, 150]} scale={[0.02, 0.02, 0.02]} />
-          <MakeMake
-            scale={[0.02, 0.02, 0.02]}
-            position={[-100, 0, 0]}
-            speed={0.003}
-          />
 
-        </animated.group> */}
           <mesh scale={[0.03, 0.03, 0.03]} position={[0, 0, 0]}>
             <Sun />
           </mesh>
@@ -133,8 +116,6 @@ function NeowisePage() {
             <Button onClick={() => setModalDayOpen(!modalDayOpen)}>APOD</Button>
           )}
         </HTML>
-
-        {/* <FlyControls object={PerspectiveCamera} domElement={SpaceShip} /> */}
 
         <OrbitControls />
         <mesh scale={[2, 2, 2]}>

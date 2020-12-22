@@ -17,8 +17,4 @@ const Sunsystem = () => {
   );
 };
 
-// Sunsystem.propTypes = {
-//   speed: PropTypes.number.isRequired,
-// };
-
 export default Sunsystem;
