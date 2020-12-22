@@ -11,7 +11,7 @@ const ModalDayContainer = styled.div`
   padding: 0.8rem;
   border-radius: 30px;
   box-shadow: 0px 0px 15px 3px #fff;
-  height: 700px;
+  max-height: 700px;
   overflow-x: hidden;
   overflow-y: auto;
 

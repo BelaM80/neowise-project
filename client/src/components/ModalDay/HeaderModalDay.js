@@ -16,9 +16,9 @@ const Header = styled.header`
     padding: 0.3rem;
     font-family: "Orbitron", Arial, sans-serif;
   }
-  h1 {
+  p {
     color: black;
-    font-size: 1rem;
+    margin: 0px;
   }
 `;
 
@@ -32,6 +32,7 @@ const HeaderModalDay = (
   return (
     <Header>
       <button onClick={() => setModalDayOpen(!modalDayOpen)}>✖️</button>
+      <p>Enter a date</p>
       <form onSubmit={onSubmit}>
         <input
           type="text"

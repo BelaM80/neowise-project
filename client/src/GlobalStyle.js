@@ -40,10 +40,18 @@ h1 {
 }
 
 canvas {
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  min-width: 100%;
   background-color: black;
+  cursor: grab;
 }
+
+canvas:active {
+  cursor: grabbing;
+
+}
+
+
 
 `;
 
