@@ -77,9 +77,8 @@ function NeowisePage() {
             </HTML>
           }
         >
-          <mesh position={[-10, 1, -100]}>
-            <SpaceShip />
-          </mesh>
+          <SpaceShip position={[-20, 1, -80]} scale={[0.6, 0.6, 0.6]} />
+
           <Sunsystem />
 
           <mesh scale={[0.03, 0.03, 0.03]} position={[0, 0, 0]}>
