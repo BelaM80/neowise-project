@@ -77,7 +77,7 @@ function NeowisePage() {
             </HTML>
           }
         >
-          <SpaceShip position={[-20, 1, -80]} scale={[0.6, 0.6, 0.6]} />
+          <SpaceShip scale={[2, 2, 2]} />
 
           <Sunsystem />
 
