@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Frame = styled.div`
-  border: 1px solid lightgrey;
-  margin-top: 1rem;
+  /* border: 1px solid lightgrey; */
+  margin-top: 2rem;
   border-radius: 28px;
+  box-shadow: 0px 0px 15px 3px #c9edff;
+
   div {
     padding: 0.6rem;
   }

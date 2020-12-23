@@ -60,7 +60,7 @@ function NeowisePage() {
   return (
     <>
       <h2>How to navigate: Zoom in and out - Scroll</h2>
-      <Canvas colorManagement camera={{ position: [-10, 20, -80], fov: 70 }}>
+      <Canvas colorManagement camera={{ position: [-40, 10, -100], fov: 70 }}>
         <ContactShadows
           opacity={1}
           width={1}
@@ -85,7 +85,7 @@ function NeowisePage() {
             <Sun />
           </mesh>
         </Suspense>
-        <HTML position={[-3, 70, 0]}>
+        <HTML position={[-3, 40, 0]}>
           <Modal
             modalOpen={modalOpen}
             setModalOpen={setModalOpen}
@@ -100,7 +100,7 @@ function NeowisePage() {
             <Button onClick={() => setModalOpen(!modalOpen)}>QUERY</Button>
           )}
         </HTML>
-        <HTML position={[-3, 70, 0]}>
+        <HTML position={[-3, 40, 0]}>
           <ModalDay
             modalDayOpen={modalDayOpen}
             setModalDayOpen={setModalDayOpen}
