@@ -7,22 +7,13 @@ import HeaderModal from "./HeaderModal";
 const ModalContainer = styled.div`
   width: 600px;
   background-color: #fff;
-  color: black;
+  color: #010a26;
   padding: 0.8rem;
   border-radius: 30px;
   box-shadow: 0px 0px 15px 3px #fff;
   max-height: 700px;
   overflow-x: hidden;
   overflow-y: auto;
-
-  button {
-    border: none;
-    background-color: #fff;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    text-align: center;
-  }
 `;
 
 const Modal = ({
