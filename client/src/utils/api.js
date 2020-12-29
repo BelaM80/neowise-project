@@ -23,7 +23,7 @@ export const getSpaceflightNews = async () => {
   const response = await fetch(
     "https://spaceflightnewsapi.net/api/v1/articles"
   );
-  const data = await response.json();
+  const news = await response.json();
 
-  return data;
+  return news;
 };

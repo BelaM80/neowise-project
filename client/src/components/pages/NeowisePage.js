@@ -1,7 +1,6 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "react-three-fiber";
-import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
 import { getNasaPicture } from "../../utils/api";
 import { getSpaceflightNews } from "../../utils/api";
@@ -131,6 +130,7 @@ function NeowisePage() {
             modalNewsOpen={modalNewsOpen}
             setModalNewsOpen={setModalNewsOpen}
             spaceNews={newsItems}
+            onSubmit={handleNewsSubmit}
           />
         </HTML>
         <HTML prepend position={[-50, 1, -100]}>
@@ -149,10 +149,5 @@ function NeowisePage() {
     </>
   );
 }
-NeowisePage.propTypes = {
-  data: PropTypes.node,
-  map: PropTypes.func,
-  title: PropTypes.string,
-};
 
 export default NeowisePage;

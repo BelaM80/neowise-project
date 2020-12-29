@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import React from "react";
 import PropTypes from "prop-types";
 import InnerModalNews from "./InnerModalNews";
+import HeaderModalNews from "./HeaderModalNews";
 
 const ModalNewsContainer = styled.div`
   width: 600px;
@@ -15,15 +16,24 @@ const ModalNewsContainer = styled.div`
   overflow-y: auto;
 `;
 
-const ModalNews = ({ modalNewsOpen, setModalNewsOpen, spaceNews }) => {
+const ModalNews = ({
+  modalNewsOpen,
+  setModalNewsOpen,
+  spaceNews,
+  onSubmit,
+}) => {
   return (
     <>
       {modalNewsOpen ? (
         <ModalNewsContainer>
-          <InnerModalNews
-            key={spaceNews.docs[0]._id}
-            title={spaceNews.docs[0].title}
-          />
+          {HeaderModalNews(setModalNewsOpen, modalNewsOpen, onSubmit)}
+          {spaceNews?.docs.map((items) => (
+            <InnerModalNews
+              key={items._id}
+              title={items.title}
+              date={items.published_date}
+            />
+          ))}
         </ModalNewsContainer>
       ) : null}
     </>
@@ -34,6 +44,7 @@ ModalNews.propTypes = {
   modalNewsOpen: PropTypes.bool,
   setModalNewsOpen: PropTypes.func,
   spaceNews: PropTypes.object,
+  onSubmit: PropTypes.func,
 };
 
 export default ModalNews;

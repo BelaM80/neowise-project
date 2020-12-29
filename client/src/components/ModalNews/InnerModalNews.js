@@ -17,14 +17,9 @@ const Frame = styled.div`
   }
 `;
 
-const H1 = styled.h1`
-  color: black;
-`;
-
 const InnerModalNews = ({ title, date }) => {
   return (
     <>
-      <H1>Astronomic Picture Of The Day</H1>
       <Frame>
         <div>
           <h2>{title}</h2>
