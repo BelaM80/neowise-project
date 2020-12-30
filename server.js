@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const { getNasaData } = require("./lib/database");
 const { getNasaPicture } = require("./lib/picturedata");
-const { getNewsData } = require(".lib/newsdata");
+const { getNewsData } = require("./lib/newsdata");
+
 require("dotenv").config();
 
 const app = express();
@@ -38,9 +39,11 @@ app.get("/api/getNasaPicture/:date", async (request, response) => {
   }
 });
 
-app.get("/api/getNewsData/articles", async (request, response) => {
+app.get("/api/getNewsData/:articles", async (request, response) => {
+  const { news } = request.params;
+
   try {
-    const spaceNews = await getNewsData();
+    const spaceNews = await getNewsData(news);
     if (!spaceNews) {
       response.status(404).send("Could not find any Data");
       return;
