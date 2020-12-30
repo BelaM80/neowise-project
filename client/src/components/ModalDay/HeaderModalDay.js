@@ -54,7 +54,7 @@ const HeaderModalDay = (
           value={value}
           onChange={onChange}
         />
-        <input type="submit" onClick={onChange} />
+        <input type="submit" onClick={onChange} value="send" />
       </form>
     </Header>
   );
