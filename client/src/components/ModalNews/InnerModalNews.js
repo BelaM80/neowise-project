@@ -15,15 +15,24 @@ const Frame = styled.div`
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
   }
+  a {
+    text-decoration: none;
+    color: #0476d9;
+  }
 `;
 
-const InnerModalNews = ({ title, date }) => {
+const InnerModalNews = ({ title, date, article, imageSrc, source }) => {
   return (
     <>
       <Frame>
         <div>
           <h2>{title}</h2>
           <p>{date}</p>
+          <img src={imageSrc} alt={title} />
+          <a href={article} target="_blank" rel="noreferrer">
+            Read full article!
+          </a>
+          <p>Source: {source}</p>
         </div>
       </Frame>
     </>
@@ -34,5 +43,7 @@ InnerModalNews.propTypes = {
   explanation: PropTypes.string,
   imageSrc: PropTypes.node,
   date: PropTypes.string,
+  article: PropTypes.string,
+  source: PropTypes.string,
 };
 export default InnerModalNews;

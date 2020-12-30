@@ -47,7 +47,7 @@ const HeaderModalNews = (
       <button onClick={() => setModalNewsOpen(!modalNewsOpen)}>✖️</button>
       <h2>Space News</h2>
       <form onSubmit={onSubmit}>
-        <input type="submit" onClick={onChange} />
+        <input type="submit" value="GET" onClick={onChange} />
       </form>
     </Header>
   );

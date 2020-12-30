@@ -32,6 +32,9 @@ const ModalNews = ({
               key={items._id}
               title={items.title}
               date={items.published_date}
+              article={items.url}
+              imageSrc={items.featured_image}
+              source={items.news_site_long}
             />
           ))}
         </ModalNewsContainer>
