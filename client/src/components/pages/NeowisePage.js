@@ -1,13 +1,14 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "react-three-fiber";
-import PropTypes from "prop-types";
 import { getNasaItems } from "../../utils/api";
 import { getNasaPicture } from "../../utils/api";
+import { getSpaceflightNews } from "../../utils/api";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
 import ModalDay from "../ModalDay/ModalDay";
+import ModalNews from "../ModalNews/ModalNews";
 import Button from "../Button/Button";
 import Sun from "../3D/Sun";
 
@@ -21,6 +22,8 @@ function NeowisePage() {
   const [search, setSearch] = useState("");
   const [searchDay, setSearchDay] = useState("");
   const [ShowLazyButton, setShowLazyButton] = useState(false);
+  const [newsItems, setNewsItems] = useState(null);
+  const [modalNewsOpen, setModalNewsOpen] = useState(false);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -48,6 +51,13 @@ function NeowisePage() {
     }
     const pic = await getNasaPicture(searchDay);
     setNasaPic(pic);
+  };
+
+  const handleNewsSubmit = async (e) => {
+    e.preventDefault();
+
+    const news = await getSpaceflightNews(newsItems);
+    setNewsItems(news);
   };
 
   useEffect(() => {
@@ -115,6 +125,21 @@ function NeowisePage() {
             <Button onClick={() => setModalDayOpen(!modalDayOpen)}>APOD</Button>
           )}
         </HTML>
+        <HTML position={[-3, 40, 0]}>
+          <ModalNews
+            modalNewsOpen={modalNewsOpen}
+            setModalNewsOpen={setModalNewsOpen}
+            spaceNews={newsItems}
+            onSubmit={handleNewsSubmit}
+          />
+        </HTML>
+        <HTML prepend position={[-50, 1, -100]}>
+          {ShowLazyButton && (
+            <Button onClick={() => setModalNewsOpen(!modalNewsOpen)}>
+              NEWS
+            </Button>
+          )}
+        </HTML>
 
         <OrbitControls />
         <mesh scale={[2, 2, 2]}>
@@ -124,10 +149,5 @@ function NeowisePage() {
     </>
   );
 }
-NeowisePage.propTypes = {
-  data: PropTypes.node,
-  map: PropTypes.func,
-  title: PropTypes.string,
-};
 
 export default NeowisePage;

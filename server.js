@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const { getNasaData } = require("./lib/database");
 const { getNasaPicture } = require("./lib/picturedata");
+const { getNewsData } = require("./lib/newsdata");
+
 require("dotenv").config();
 
 const app = express();
@@ -31,6 +33,22 @@ app.get("/api/getNasaPicture/:date", async (request, response) => {
       return;
     }
     response.send(nasaPicture);
+  } catch (error) {
+    console.log(error);
+    response.status(500).send("An internal error occured");
+  }
+});
+
+app.get("/api/getNewsData/:articles", async (request, response) => {
+  const { news } = request.params;
+
+  try {
+    const spaceNews = await getNewsData(news);
+    if (!spaceNews) {
+      response.status(404).send("Could not find any Data");
+      return;
+    }
+    response.send(spaceNews);
   } catch (error) {
     console.log(error);
     response.status(500).send("An internal error occured");

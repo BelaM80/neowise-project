@@ -18,3 +18,10 @@ export const getNasaPicture = async (date) => {
 
   return data;
 };
+
+export const getSpaceflightNews = async () => {
+  const response = await fetch("/api/getNewsData/:articles");
+  const news = await response.json();
+
+  return news;
+};

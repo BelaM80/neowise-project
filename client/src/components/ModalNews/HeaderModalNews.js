@@ -8,18 +8,25 @@ const Header = styled.header`
   top: 0;
   background-color: #fff;
   padding: 1rem;
-  border-radius: 20px;
+  color: #010a26;
   box-shadow: 0px 0px 15px 3px #c9edff;
+  border-radius: 20px;
 
   input {
     border: none;
+    color: #010a26;
+
     border-bottom: 1px solid black;
     margin-right: 1rem;
     padding: 0.3rem;
     font-family: "Orbitron", Arial, sans-serif;
-    background-color: #fff;
+  }
+  h2 {
+    margin: 0px;
+    color: #010a26;
   }
   button {
+    color: #010a26;
     border: none;
     background-color: #fff;
     width: 20px;
@@ -29,21 +36,21 @@ const Header = styled.header`
   }
 `;
 
-const HeaderModal = (setModalOpen, modalOpen, onSubmit, value, onChange) => {
+const HeaderModalNews = (
+  setModalNewsOpen,
+  modalNewsOpen,
+  onSubmit,
+  onChange
+) => {
   return (
     <Header>
-      <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
+      <button onClick={() => setModalNewsOpen(!modalNewsOpen)}>✖️</button>
+      <h2>Space News</h2>
       <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="Type a keyword"
-          value={value}
-          onChange={onChange}
-        />
-        <input type="submit" onClick={onChange} value="send" />
+        <input type="submit" value="GET" onClick={onChange} />
       </form>
     </Header>
   );
 };
 
-export default HeaderModal;
+export default HeaderModalNews;
