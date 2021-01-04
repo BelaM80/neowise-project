@@ -40,7 +40,7 @@ const HeaderModalDay = (
   setModalDayOpen,
   modalDayOpen,
   onSubmit,
-  value,
+  input,
   onChange
 ) => {
   return (
@@ -51,7 +51,7 @@ const HeaderModalDay = (
         <input
           type="text"
           placeholder="YYYY-MM-DD"
-          value={value}
+          input={input}
           onChange={onChange}
         />
         <input type="submit" onClick={onChange} value="send" />

@@ -20,7 +20,7 @@ const Modal = ({
   modalOpen,
   setModalOpen,
   nasaItems,
-  value,
+  input,
   onSubmit,
   onChange,
 }) => {
@@ -28,7 +28,7 @@ const Modal = ({
     <>
       {modalOpen ? (
         <ModalContainer>
-          {HeaderModal(setModalOpen, modalOpen, onSubmit, value, onChange)}
+          {HeaderModal(setModalOpen, modalOpen, onSubmit, input, onChange)}
           {nasaItems?.map((item) => (
             <InnerModal
               key={item.nasaId}
@@ -48,7 +48,7 @@ Modal.propTypes = {
   modalOpen: PropTypes.bool,
   setModalOpen: PropTypes.func,
   nasaItems: PropTypes.array,
-  value: PropTypes.string,
+  input: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 };

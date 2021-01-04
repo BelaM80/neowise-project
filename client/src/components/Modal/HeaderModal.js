@@ -29,7 +29,7 @@ const Header = styled.header`
   }
 `;
 
-const HeaderModal = (setModalOpen, modalOpen, onSubmit, value, onChange) => {
+const HeaderModal = (setModalOpen, modalOpen, onSubmit, input, onChange) => {
   return (
     <Header>
       <button onClick={() => setModalOpen(!modalOpen)}>✖️</button>
@@ -37,7 +37,7 @@ const HeaderModal = (setModalOpen, modalOpen, onSubmit, value, onChange) => {
         <input
           type="text"
           placeholder="Type a keyword"
-          value={value}
+          input={input}
           onChange={onChange}
         />
         <input type="submit" onClick={onChange} value="send" />
