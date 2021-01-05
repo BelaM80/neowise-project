@@ -100,7 +100,7 @@ function NeowisePage() {
             modalOpen={modalOpen}
             setModalOpen={setModalOpen}
             nasaItems={nasaItems}
-            value={search}
+            input={search}
             onSubmit={handleSubmit}
             onChange={handleChange}
           />
@@ -115,7 +115,7 @@ function NeowisePage() {
             modalDayOpen={modalDayOpen}
             setModalDayOpen={setModalDayOpen}
             nasaPic={nasaPic}
-            value={searchDay}
+            input={searchDay}
             onSubmit={handleDaySubmit}
             onChange={handleDayChange}
           />

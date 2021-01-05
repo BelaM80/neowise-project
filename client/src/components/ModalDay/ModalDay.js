@@ -20,7 +20,7 @@ const ModalDay = ({
   modalDayOpen,
   setModalDayOpen,
   nasaPic,
-  value,
+  input,
   onSubmit,
   onChange,
 }) => {
@@ -32,7 +32,7 @@ const ModalDay = ({
             setModalDayOpen,
             modalDayOpen,
             onSubmit,
-            value,
+            input,
             onChange
           )}
           {nasaPic && (
@@ -55,7 +55,7 @@ ModalDay.propTypes = {
   modalDayOpen: PropTypes.bool,
   setModalDayOpen: PropTypes.func,
   nasaPic: PropTypes.object,
-  value: PropTypes.string,
+  input: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 };
