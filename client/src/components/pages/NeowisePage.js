@@ -1,9 +1,11 @@
 import { ContactShadows, HTML, OrbitControls, Stars } from "drei";
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "react-three-fiber";
-import { getNasaItems } from "../../utils/api";
-import { getNasaPicture } from "../../utils/api";
-import { getSpaceflightNews } from "../../utils/api";
+import {
+  getNasaItems,
+  getNasaPicture,
+  getSpaceflightNews,
+} from "../../utils/api";
 
 import SpaceShip from "../3D/SpaceShip";
 import Modal from "../Modal/Modal";
