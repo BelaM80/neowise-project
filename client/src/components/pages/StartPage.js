@@ -10,6 +10,10 @@ function StartPage({ name }) {
       <Header />
       <Container>
         <p>Captain {name} is required on bridge!</p>
+        <p>
+          Navigation: Press the left mousekey to spin around. Press the right
+          mousekey to change your viewpoint position. Scroll to zoom in and out.
+        </p>
         <LinkButton>Start</LinkButton>
       </Container>
     </>
