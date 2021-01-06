@@ -23,6 +23,14 @@ function HomePage({ onNameChange }) {
     <>
       <Header />
       <Container>
+        <div>
+          <p>
+            Welcome to Neowise - a space exploration project. You will
+            experience a 3D sunsystem, where you can move around and find
+            astronomical information.
+          </p>
+          <p>Enter your name end press enter.</p>
+        </div>
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
@@ -32,7 +40,6 @@ function HomePage({ onNameChange }) {
             link
           />
         </form>
-        <a href="/storybook">To Storybook</a>
       </Container>
     </>
   );
