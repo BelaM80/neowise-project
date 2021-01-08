@@ -71,7 +71,6 @@ function NeowisePage() {
 
   return (
     <>
-      <h2>How to navigate: Zoom in and out - Scroll</h2>
       <Canvas colorManagement camera={{ position: [-40, 10, -100], fov: 70 }}>
         <ContactShadows
           opacity={1}
