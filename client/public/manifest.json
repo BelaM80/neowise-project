@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "solar-system.svg",
-      "type": "image/svg",
+      "src": "solar-system.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "solar-system.svg",
-      "type": "image/svg",
+      "src": "solar-system.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
