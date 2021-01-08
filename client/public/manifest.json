@@ -1,6 +1,6 @@
 {
-  "short_name": "CRA-With-API",
-  "name": "CRA-With-API Sample",
+  "short_name": "NEOWISE-Project",
+  "name": "NEOWISE-Project",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "solar-system.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "solar-system.png",
       "type": "image/png",
       "sizes": "512x512"
     }
