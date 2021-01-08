@@ -1,6 +1,6 @@
 {
   "short_name": "NEOWISE-Project",
-  "name": "NEOWISE-Project Sample",
+  "name": "NEOWISE-Project",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,12 +9,12 @@
     },
     {
       "src": "solar-system.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
       "src": "solar-system.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],
