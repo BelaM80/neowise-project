@@ -15,6 +15,8 @@ import Button from "../Button/Button";
 import Sun from "../3D/Sun";
 
 import Sunsystem from "../3D/Sunsystem";
+import Galaxy from "../3D/Galaxy";
+import Astronaut from "../3D/Astronaut";
 
 function NeowisePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -88,6 +90,8 @@ function NeowisePage() {
             </HTML>
           }
         >
+          <Galaxy position={[-500, 300, 0]} />
+          <Astronaut position={[100, 20, 100]} />
           <SpaceShip position={[0, 10, -50]} scale={[2, 2, 2]} />
 
           <Sunsystem />
