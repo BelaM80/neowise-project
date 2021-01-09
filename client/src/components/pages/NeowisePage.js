@@ -115,7 +115,7 @@ function NeowisePage() {
             <Button onClick={() => setModalOpen(!modalOpen)}>QUERY</Button>
           )}
         </HTML>
-        <HTML position={[1000, 60, 0]}>
+        <HTML position={[100, 60, 0]}>
           <ModalDay
             modalDayOpen={modalDayOpen}
             setModalDayOpen={setModalDayOpen}

@@ -4,7 +4,7 @@ import astronaut from "../../assets/astronaut.glb";
 import { useFrame } from "react-three-fiber";
 import PropTypes from "prop-types";
 
-const Astronaut = ({ position, scale, speed }) => {
+const Astronaut = ({ position, speed }) => {
   const mesh = useRef(null);
   const gltf = useGLTFLoader(astronaut, true);
 
@@ -14,7 +14,7 @@ const Astronaut = ({ position, scale, speed }) => {
   });
 
   return (
-    <mesh position={position} scale={scale} castShadow speed={speed}>
+    <mesh position={position} castShadow speed={speed}>
       <primitive object={gltf.scene} dispose={null} ref={mesh} />
     </mesh>
   );
@@ -23,7 +23,6 @@ const Astronaut = ({ position, scale, speed }) => {
 Astronaut.propTypes = {
   speed: PropTypes.number,
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
-  scale: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Astronaut;
