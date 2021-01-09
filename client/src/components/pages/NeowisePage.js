@@ -100,7 +100,7 @@ function NeowisePage() {
             <Sun />
           </mesh>
         </Suspense>
-        <HTML position={[-3, 40, 0]}>
+        <HTML position={[100, 60, 0]}>
           <Modal
             modalOpen={modalOpen}
             setModalOpen={setModalOpen}
@@ -115,7 +115,7 @@ function NeowisePage() {
             <Button onClick={() => setModalOpen(!modalOpen)}>QUERY</Button>
           )}
         </HTML>
-        <HTML position={[-3, 40, 0]}>
+        <HTML position={[100, 60, 0]}>
           <ModalDay
             modalDayOpen={modalDayOpen}
             setModalDayOpen={setModalDayOpen}
@@ -130,7 +130,7 @@ function NeowisePage() {
             <Button onClick={() => setModalDayOpen(!modalDayOpen)}>APOD</Button>
           )}
         </HTML>
-        <HTML position={[-3, 40, 0]}>
+        <HTML position={[100, 60, 0]}>
           <ModalNews
             modalNewsOpen={modalNewsOpen}
             setModalNewsOpen={setModalNewsOpen}
