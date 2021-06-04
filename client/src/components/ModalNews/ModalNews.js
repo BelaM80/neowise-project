@@ -27,14 +27,14 @@ const ModalNews = ({
       {modalNewsOpen ? (
         <ModalNewsContainer>
           {HeaderModalNews(setModalNewsOpen, modalNewsOpen, onSubmit)}
-          {spaceNews?.docs.map((items) => (
+          {spaceNews?.map((items) => (
             <InnerModalNews
-              key={items._id}
+              key={items.id}
               title={items.title}
-              date={items.published_date}
+              date={items.publishedAt}
               article={items.url}
-              imageSrc={items.featured_image}
-              source={items.news_site_long}
+              imageSrc={items.imageUrl}
+              source={items.newsSite}
             />
           ))}
         </ModalNewsContainer>
